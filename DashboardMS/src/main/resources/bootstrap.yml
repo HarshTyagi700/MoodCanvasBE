@@ -1,0 +1,22 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /pinterest
+spring:
+  application:
+    name: PinBoardMS
+
+  cloud:
+    consul:
+      host: localhost
+      config:
+        format: YAML
+        enabled: true
+        prefixes: config
+        fail-fast: false
+        default-context: application
+        data-key: data
+        profile-separator: '::'
+      discovery:
+        health-check-url: http://localhost:${server.port}${server.servlet.context-path}/actuator
+        hostname: localhost

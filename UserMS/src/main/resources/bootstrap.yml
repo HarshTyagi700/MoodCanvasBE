@@ -1,0 +1,25 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /pinterest
+spring:
+  application:
+    name: UserMS
+
+  cloud:
+    consul:
+      host: localhost
+      config:
+        format: YAML
+        enabled: true
+        prefixes: config
+        fail-fast: false
+        default-context: application
+        data-key: data
+        profile-separator: '::'
+      discovery:
+        health-check-url: http://localhost:${server.port}${server.servlet.context-path}/actuator
+        hostname: localhost
+jwt:
+  secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+  expiration: 86400

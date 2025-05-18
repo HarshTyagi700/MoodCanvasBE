@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000" 
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: UserMS
+          uri: lb://UserMS
+          predicates:
+            - Path=/pinterest/user-api/**
+        - id: PinBoardMS
+          uri: lb://PinBoardMS
+          predicates:
+            - Path=/pinterest/pinboard-api/**
+        - id: AnalyticsMS
+          uri: lb://AnalyticsMS
+          predicates:
+            - Path=/pinterest/analytics-api/**
+        - id: PinsMS
+          uri: lb://PinsMS
+          predicates:
+            - Path=/pinterest/pins-api/**
