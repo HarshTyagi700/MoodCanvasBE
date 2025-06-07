@@ -21,8 +21,8 @@ The project follows a **modular microservices architecture**, using **Spring Boo
 
 ## 🔧 Tech Stack
 
-- **Java 17**
-- **Spring Boot 3+**
+- **Java 8**
+- **Spring Boot 3**
 - **Spring Cloud (Gateway, Config, Consul)**
 - **Apache Kafka**
 - **Elasticsearch**
